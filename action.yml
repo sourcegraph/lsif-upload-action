@@ -1,0 +1,12 @@
+name: 'Sourcegraph LSIF Uploader'
+description: 'Generate LSIF data and upload to Sourcegraph'
+author: 'Sourcegraph'
+inputs:
+  message:
+    description: 'The test message to display'
+    default: 'no value supplied'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.message }}
