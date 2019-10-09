@@ -1,12 +1,24 @@
-name: 'Sourcegraph LSIF Uploader'
-description: 'Generate LSIF data and upload to Sourcegraph'
-author: 'Sourcegraph'
+name: Sourcegraph LSIF Uploader
+description: Generate LSIF data and upload to Sourcegraph
+author: Sourcegraph
+
 inputs:
-  message:
-    description: 'The test message to display'
-    default: 'no value supplied'
+  file:
+    description: The LSIF dump to upload.
+    required: true
+  endpoint:
+    description: The Sourcegraph instance to target
+    required: false
+    default: http://sourcegraph.com
+  upload_token:
+    description: The LSIF upload token (only necessary if using the sourcegraph.com endpoint)
+    required: false
+
 runs:
-  using: 'docker'
-  image: 'Dockerfile'
+  using: docker
+  image: Dockerfile
+  env:
+    - SRC_ENDPOINT=${{ inputs.endpoint }}
+    - SRC_LSIF_UPLOAD_TOKEN=${{ inputs.upload_token }}
   args:
-    - ${{ inputs.message }}
+    - ${{ inputs.file }}

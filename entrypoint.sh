@@ -1,3 +1,3 @@
 #!/bin/sh -l
 
-echo ">>> $1"
+env REPOSITORY="${GITHUB_REPOSITORY}" COMMIT="${GITHUB_SHA}" ./upload-lsif.sh "$1"
