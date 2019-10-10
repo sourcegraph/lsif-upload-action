@@ -1,0 +1,27 @@
+name: Sourcegraph LSIF Uploader
+description: Upload LSIF data to a Sourcegraph instance
+author: Sourcegraph
+branding:
+  icon: upload
+  color: purple
+
+inputs:
+  file:
+    description: The LSIF dump file to upload.
+    required: true
+  endpoint:
+    description: The URL of the Sourcegraph instance to target
+    required: false
+    default: http://sourcegraph.com
+  upload_token:
+    description: The LSIF upload token for this repository (only necessary if using the sourcegraph.com endpoint)
+    required: false
+
+runs:
+  using: docker
+  image: Dockerfile
+  env:
+    SRC_ENDPOINT: ${{ inputs.endpoint }}
+    SRC_LSIF_UPLOAD_TOKEN: ${{ inputs.upload_token }}
+  args:
+    - ${{ inputs.file }}
