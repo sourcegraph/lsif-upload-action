@@ -16,7 +16,7 @@ if [ -z "$1" ]; then
 fi
 
 sourcegraph-cli lsif upload \
-    "-repository=${GITHUB_REPOSITORY}" \
+    "-repo=${GITHUB_REPOSITORY}" \
     "-commit=${GITHUB_SHA}" \
     "-upload-token=${SRC_LSIF_UPLOAD_TOKEN}" \
     "-file=$1"
