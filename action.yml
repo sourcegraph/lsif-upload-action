@@ -7,13 +7,16 @@ branding:
 
 inputs:
   file:
-    description: The LSIF dump file to upload.
+    description: The LSIF dump file to upload
     default: data.lsif
   endpoint:
-    description: The URL of the Sourcegraph instance to target
+    description: The URL of the Sourcegraph instance
     default: https://sourcegraph.com
+  access_token:
+    description: The access token to use to authenticate to the Sourcegraph instance
+    default: ''
   upload_token:
-    description: The LSIF upload token for this repository (only necessary if using the sourcegraph.com endpoint)
+    description: The LSIF upload token generated for this repository (only necessary if lsifEnforceAuth setting is enabled`)
     default: ''
 
 runs:
@@ -21,6 +24,7 @@ runs:
   image: Dockerfile
   env:
     SRC_ENDPOINT: ${{ inputs.endpoint }}
+    SRC_ACCESS_TOKEN: ${{ inputs.access_token }}
     SRC_LSIF_UPLOAD_TOKEN: ${{ inputs.upload_token }}
   args:
     - ${{ inputs.file }}

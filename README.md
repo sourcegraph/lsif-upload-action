@@ -10,6 +10,7 @@ The following input scan be set.
 | ------------ | ----------------------- | ----------- |
 | file         | data.lsif               | The LSIF dump file to upload. |
 | endpoint     | https://sourcegraph.com | The Sourcegraph instance to target. |
+| access_token |                         | The access token to use to authenticate to the Sourcegraph instance. |
 | upload_token |                         | The upload token to use. Required only if `lsifEnforceAuth` setting is enabled. |
 
 The following is a complete example that uses the [Go indexer action](https://github.com/sourcegraph/lsif-go-action) to generate data to upload.
@@ -32,4 +33,5 @@ jobs:
         uses: sourcegraph/lsif-upload-action@0.1.0-alpha
         with:
           file: data.lsif
+          access_token: ${{ secrets.lsif_access_token }}
 ```

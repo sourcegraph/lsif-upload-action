@@ -15,7 +15,7 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-sourcegraph-cli lsif upload \
+env sourcegraph-cli lsif upload \
     "-repo=${GITHUB_REPOSITORY}" \
     "-commit=${GITHUB_SHA}" \
     "-upload-token=${SRC_LSIF_UPLOAD_TOKEN}" \
