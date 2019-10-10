@@ -8,14 +8,13 @@ branding:
 inputs:
   file:
     description: The LSIF dump file to upload.
-    required: true
+    default: data.lsif
   endpoint:
     description: The URL of the Sourcegraph instance to target
-    required: false
-    default: http://sourcegraph.com
+    default: https://sourcegraph.com
   upload_token:
     description: The LSIF upload token for this repository (only necessary if using the sourcegraph.com endpoint)
-    required: false
+    default: ''
 
 runs:
   using: docker
