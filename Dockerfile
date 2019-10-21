@@ -1,7 +1,7 @@
 FROM golang:1.13.1-alpine3.10 as builder
 
 # The commit at which to build the sourcegraph cli
-ENV CLI_COMMIT=8f2f3254a6f21ca996ea2cf0926568efc77125e3
+ENV CLI_COMMIT=495d3651b01ec778c84a17098acb8a16cd177d24
 ENV CLONE_URL="https://github.com/sourcegraph/src-cli.git"
 
 RUN apk add --no-cache git=2.22.0-r0

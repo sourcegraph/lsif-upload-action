@@ -19,4 +19,5 @@ env sourcegraph-cli lsif upload \
     "-repo=github.com/${GITHUB_REPOSITORY}" \
     "-commit=${GITHUB_SHA}" \
     "-upload-token=${SRC_LSIF_UPLOAD_TOKEN}" \
+    "-skip-validation" \
     "-file=$1"
