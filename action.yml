@@ -21,6 +21,6 @@ runs:
   image: Dockerfile
   env:
     SRC_ENDPOINT: ${{ inputs.endpoint }}
-    PUBLIC_REPO_ACCESS_TOKEN: ${{ inputs.public_repo_github_token }}
+    PUBLIC_REPO_GITHUB_TOKEN: ${{ inputs.public_repo_github_token }}
   args:
     - ${{ inputs.file }}
