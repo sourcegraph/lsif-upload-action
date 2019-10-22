@@ -12,11 +12,8 @@ inputs:
   endpoint:
     description: The URL of the Sourcegraph instance
     default: https://sourcegraph.com
-  access_token:
-    description: The access token to use to authenticate to the Sourcegraph instance
-    default: ''
-  upload_token:
-    description: The LSIF upload token generated for this repository (only necessary if lsifEnforceAuth setting is enabled`)
+  public_repo_github_token:
+    description: The GitHub access token with `public repo` scope (necessary when uploading to Sourcegraph.com, or any Sourcegraph instance with lsifEnforceAuth set to true)
     default: ''
 
 runs:
@@ -24,7 +21,6 @@ runs:
   image: Dockerfile
   env:
     SRC_ENDPOINT: ${{ inputs.endpoint }}
-    SRC_ACCESS_TOKEN: ${{ inputs.access_token }}
-    SRC_LSIF_UPLOAD_TOKEN: ${{ inputs.upload_token }}
+    PUBLIC_REPO_ACCESS_TOKEN: ${{ inputs.public_repo_github_token }}
   args:
     - ${{ inputs.file }}
