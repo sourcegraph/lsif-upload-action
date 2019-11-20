@@ -21,3 +21,10 @@ env sourcegraph-cli lsif upload \
     "-github-token=${PUBLIC_REPO_GITHUB_TOKEN}" \
     "-skip-validation" \
     "-file=$1"
+
+exitCode="$?"
+if [ "$IGNORE_FAILURE" = "true" ]; then
+    exit 0
+else
+    exit "$exitCode"
+fi
