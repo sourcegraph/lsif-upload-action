@@ -26,13 +26,11 @@ jobs:
     steps:
       - uses: actions/checkout@v1
       - name: Generate LSIF Data
-        uses: sourcegraph/lsif-go-action@0.1.0-alpha
+        uses: sourcegraph/lsif-go-action@master
         with:
-          file: data.lsif
-          verbose: 'true'
+          verbose: "true"
       - name: Upload LSIF data
-        uses: sourcegraph/lsif-upload-action@0.1.0-alpha
+        uses: sourcegraph/lsif-upload-action@master
         with:
-          file: data.lsif
-          access_token: ${{ secrets.lsif_access_token }}
+          public_repo_github_token: ${{ secrets.PUBLIC_REPO_GITHUB_TOKEN }}
 ```
