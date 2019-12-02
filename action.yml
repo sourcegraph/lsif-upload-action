@@ -12,8 +12,8 @@ inputs:
   endpoint:
     description: The URL of the Sourcegraph instance
     default: https://sourcegraph.com
-  public_repo_github_token:
-    description: The GitHub access token with `public repo` scope (necessary when uploading to Sourcegraph.com, or any Sourcegraph instance with lsifEnforceAuth set to true)
+  github_token:
+    description: The GitHub access token with `repo` or `public_repo` scope (necessary when uploading to Sourcegraph.com, or any Sourcegraph instance with `lsifEnforceAuth` set to true)
     default: ''
   ignore_failure:
     description: Exit with code 0, even when the upload fails (prevents a red X from showing up in GitHub pull request checks)
@@ -24,7 +24,7 @@ runs:
   image: Dockerfile
   env:
     SRC_ENDPOINT: ${{ inputs.endpoint }}
-    PUBLIC_REPO_GITHUB_TOKEN: ${{ inputs.public_repo_github_token }}
+    GITHUB_TOKEN: ${{ inputs.github_token }}
     IGNORE_FAILURE: ${{ inputs.ignore_failure }}
   args:
     - ${{ inputs.file }}
