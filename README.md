@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - name: Generate LSIF Data
+      - name: Generate LSIF data
         uses: sourcegraph/lsif-go-action@master
         with:
           verbose: "true"
