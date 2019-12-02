@@ -17,7 +17,7 @@ inputs:
     default: ''
   ignore_failure:
     description: Exit with code 0, even when the upload fails (prevents a red X from showing up in GitHub pull request checks)
-    default: 'true'
+    default: 'false'
 
 runs:
   using: docker
