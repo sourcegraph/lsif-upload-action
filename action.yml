@@ -13,7 +13,7 @@ inputs:
     description: The URL of the Sourcegraph instance
     default: https://sourcegraph.com
   github_token:
-    description: The GitHub access token with `repo` or `public_repo` scope (necessary when uploading to Sourcegraph.com, or any Sourcegraph instance with `lsifEnforceAuth` set to true)
+    description: The GitHub access token with `repo` or `public_repo` scope (necessary when uploading to Sourcegraph.com, or any Sourcegraph instance with lsifEnforceAuth set to true)
     default: ''
   ignore_failure:
     description: Exit with code 0, even when the upload fails (prevents a red X from showing up in GitHub pull request checks)
