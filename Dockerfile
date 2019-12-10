@@ -4,7 +4,7 @@ FROM golang:1.13.1-alpine3.10 as builder
 ENV CLI_COMMIT=8f2f3254a6f21ca996ea2cf0926568efc77125e3
 ENV CLONE_URL="https://github.com/sourcegraph/src-cli.git"
 
-RUN apk add --no-cache git=2.22.0-r0
+RUN apk add --no-cache git=2.22.2-r0
 
 WORKDIR /go/src/github.com/sourcegraph/src-cli
 RUN git clone "${CLONE_URL}" . && \
