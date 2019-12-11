@@ -14,7 +14,7 @@ RUN git clone "${CLONE_URL}" . && \
 FROM alpine:3.10
 
 # Needed by `src lsif upload` to populate defaults.
-RUN apk add --no-cache git=2.22.0-r0
+RUN apk add --no-cache git=2.22.2-r0
 
 LABEL version="0.1.0"
 LABEL repository="http://github.com/sourcegraph/lsif-upload-action"
