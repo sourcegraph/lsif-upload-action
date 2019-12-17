@@ -25,11 +25,11 @@ jobs:
       - name: Generate LSIF data
         uses: sourcegraph/lsif-go-action@master
         with:
-          verbose: "true"
+          verbose: 'true'
       - name: Upload LSIF data
         uses: sourcegraph/lsif-upload-action@master
         continue-on-error: true
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
           endpoint: https://sourcegraph.com
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 ```
