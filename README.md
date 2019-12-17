@@ -4,7 +4,7 @@ This action uploads generated LSIF data to a Sourcegraph instance.
 
 ## Usage
 
-The following input scan be set.
+The following inputs can be set.
 
 | name                     | default                   | description |
 | ------------------------ | ------------------------- | ----------- |
