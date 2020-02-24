@@ -9,6 +9,7 @@ The following inputs can be set.
 | name                     | default                   | description |
 | ------------------------ | ------------------------- | ----------- |
 | file                     | data.lsif                 | The LSIF dump file to upload. |
+| root                     | ''                        | The root of the LSIF dump. |
 | endpoint                 | `https://sourcegraph.com` | The Sourcegraph instance to target. |
 
 The following is a complete example that uses the [Go indexer action](https://github.com/sourcegraph/lsif-go-action) to generate data to upload. Put this in `.github/workflows/lsif.yaml`.
