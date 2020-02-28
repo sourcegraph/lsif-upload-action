@@ -10,7 +10,7 @@ RUN apk add --no-cache \
     git=2.22.2-r0
 
 RUN set -ex && \
-    curl -s "${DOWNLOAD_URL}" > /usr/bin/src && \
+    curl -s -L "${DOWNLOAD_URL}" > /usr/bin/src && \
     chmod +x /usr/bin/src
 
 
