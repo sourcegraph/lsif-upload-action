@@ -1,18 +1,18 @@
-FROM golang:1.13.1-alpine3.10 as builder
-
-# The commit at which to build the sourcegraph cli
-ENV CLI_COMMIT=21dd58b08d64620942401b5543f5b0d33498bacb
-
-RUN apk add --no-cache git=2.22.2-r0
-WORKDIR /go/src/github.com/sourcegraph/src-cli
-RUN git clone https://github.com/sourcegraph/src-cli.git . && \
-    git checkout -q "${CLI_COMMIT}" && \
-    go install ./cmd/src
-
 FROM alpine:3.10
 
-# Needed by `src lsif upload` to populate defaults.
-RUN apk add --no-cache git=2.22.2-r0
+ENV CLI_VERSION=3.10.9
+ENV DOWNLOAD_URL="https://github.com/sourcegraph/src-cli/releases/download/${CLI_VERSION}/src_linux_amd64"
+
+RUN apk add --no-cache \
+    # Needed to install binary
+    curl \
+    # Needed by `src lsif upload` to populate defaults
+    git=2.22.2-r0
+
+RUN set -ex && \
+    curl -s "${DOWNLOAD_URL}" > /usr/bin/src && \
+    chmod +x /usr/bin/src
+
 
 LABEL version="0.1.0"
 LABEL repository="http://github.com/sourcegraph/lsif-upload-action"
@@ -24,6 +24,5 @@ LABEL "com.github.actions.description"="Upload LSIF data to a Sourcegraph instan
 LABEL "com.github.actions.icon"="upload"
 LABEL "com.github.actions.color"="purple"
 
-COPY --from=builder /go/bin/src /usr/bin/sourcegraph-cli
 COPY entrypoint.sh /entrypoint.sh
 ENTRYPOINT ["/entrypoint.sh"]

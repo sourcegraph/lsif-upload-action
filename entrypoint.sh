@@ -15,7 +15,7 @@ if [ -z "$GITHUB_SHA" ]; then
     exit 1
 fi
 
-env sourcegraph-cli lsif upload \
+env src lsif upload \
     "-file=${IN}" \
     "-repo=github.com/${GITHUB_REPOSITORY}" \
     "-commit=${GITHUB_SHA}" \
