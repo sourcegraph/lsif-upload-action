@@ -7,24 +7,19 @@ branding:
 
 inputs:
   file:
-    description: The LSIF dump file to upload
-    default: data.lsif
+    description: The LSIF dump file to upload.
+    default: dump.lsif
   endpoint:
-    description: The URL of the Sourcegraph instance
+    description: The URL of the Sourcegraph instance.
     default: https://sourcegraph.com
   github_token:
-    description: Either 1. a GitHub access token with `repo` or `public_repo` scope, or 2. a GitHub installation access token (necessary when uploading to Sourcegraph.com, or any Sourcegraph instance with lsifEnforceAuth set to true)
+    description: Either 1. a GitHub access token with `repo` or `public_repo` scope, or 2. a GitHub installation access token (necessary when uploading to Sourcegraph.com, or any Sourcegraph instance with lsifEnforceAuth set to true).
     default: ''
-  ignore_failure:
-    description: Exit with code 0, even when the upload fails (prevents a red X from showing up in GitHub pull request checks)
-    default: 'false'
 
 runs:
   using: docker
   image: Dockerfile
   env:
+    IN: ${{ inputs.file }}
     SRC_ENDPOINT: ${{ inputs.endpoint }}
     GITHUB_TOKEN: ${{ inputs.github_token }}
-    IGNORE_FAILURE: ${{ inputs.ignore_failure }}
-  args:
-    - ${{ inputs.file }}
