@@ -19,4 +19,5 @@ env sourcegraph-cli lsif upload \
     "-file=${IN}" \
     "-repo=github.com/${GITHUB_REPOSITORY}" \
     "-commit=${GITHUB_SHA}" \
+    "-root=${ROOT}" \
     "-github-token=${GITHUB_TOKEN}"

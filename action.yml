@@ -9,6 +9,9 @@ inputs:
   file:
     description: The LSIF dump file to upload.
     default: dump.lsif
+  root:
+    description: The root of the LSIF dump
+    default: ''
   endpoint:
     description: The URL of the Sourcegraph instance.
     default: https://sourcegraph.com
@@ -21,5 +24,6 @@ runs:
   image: Dockerfile
   env:
     IN: ${{ inputs.file }}
+    ROOT: ${{ inputs.root }}
     SRC_ENDPOINT: ${{ inputs.endpoint }}
     GITHUB_TOKEN: ${{ inputs.github_token }}
