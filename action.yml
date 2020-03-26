@@ -18,6 +18,9 @@ inputs:
   github_token:
     description: Either 1. a GitHub access token with `repo` or `public_repo` scope, or 2. a GitHub installation access token (necessary when uploading to Sourcegraph.com, or any Sourcegraph instance with lsifEnforceAuth set to true).
     default: ''
+  repo:
+    description: The repository name (useful for indexing forks; defaults to the current repository)
+    default: ''
 
 runs:
   using: docker
@@ -27,3 +30,4 @@ runs:
     ROOT: ${{ inputs.root }}
     SRC_ENDPOINT: ${{ inputs.endpoint }}
     GITHUB_TOKEN: ${{ inputs.github_token }}
+    REPOSITORY_OVERRIDE: ${{ inputs.repo }}

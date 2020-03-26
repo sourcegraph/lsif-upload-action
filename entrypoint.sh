@@ -15,9 +15,14 @@ if [ -z "$GITHUB_SHA" ]; then
     exit 1
 fi
 
+REPOSITORY="github.com/${GITHUB_REPOSITORY}"
+if [ -z "$REPOSITORY_OVERRIDE" ]; then
+    REPOSITORY="$REPOSITORY_OVERRIDE"
+fi
+
 env src lsif upload \
     "-file=${IN}" \
-    "-repo=github.com/${GITHUB_REPOSITORY}" \
+    "-repo=${REPOSITORY}" \
     "-commit=${GITHUB_SHA}" \
     "-root=${ROOT}" \
     "-github-token=${GITHUB_TOKEN}"
