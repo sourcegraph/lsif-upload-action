@@ -7,7 +7,7 @@ RUN apk add --no-cache \
     # Needed to install binary
     curl \
     # Needed by `src lsif upload` to populate defaults
-    git=2.22.2-r0
+    git
 
 RUN set -ex && \
     curl -s -L "${DOWNLOAD_URL}" > /usr/bin/src && \
