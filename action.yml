@@ -21,9 +21,10 @@ inputs:
 
 runs:
   using: docker
-  image: Dockerfile
-  env:
-    IN: ${{ inputs.file }}
-    ROOT: ${{ inputs.root }}
-    SRC_ENDPOINT: ${{ inputs.endpoint }}
-    GITHUB_TOKEN: ${{ inputs.github_token }}
+  image: sourcegraph/src-cli:3.11.1
+  args:
+    - endpoint=${{ inputs.endpoint }}
+    - lsif upload
+    - -file=${{ inputs.file }}
+    - -root=${{ inputs.root }}
+    - -github-token=${{ inputs.github_token }}
