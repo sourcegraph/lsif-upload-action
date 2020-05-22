@@ -6,11 +6,12 @@ This action uploads generated LSIF data to a Sourcegraph instance.
 
 The following inputs can be set.
 
-| name     | default                 | description |
-| -------- | ----------------------- | ----------- |
-| file     | dump.lsif               | The LSIF dump file to upload. |
-| root     | ''                      | The root of the LSIF dump. |
-| endpoint | https://sourcegraph.com | The Sourcegraph instance to target. |
+| name                    | default                 | description                                                              |
+| --------                | ----------------------- | -----------                                                              |
+| `file`                  | dump.lsif               | The LSIF dump file to upload.                                            |
+| `root`                  | ''                      | The root of the LSIF dump.                                               |
+| `endpoint`              | https://sourcegraph.com | The Sourcegraph instance to target.                                      |
+| `ignore_upload_failure` | false                   | Permit action to succeed if uploading the LSIF dump to `endpoint` fails. |
 
 The following is a complete example that uses the [Go indexer action](https://github.com/sourcegraph/lsif-go-action) to generate data to upload. Put this in `.github/workflows/lsif.yaml`.
 

@@ -26,4 +26,5 @@ runs:
     IN: ${{ inputs.file }}
     ROOT: ${{ inputs.root }}
     SRC_ENDPOINT: ${{ inputs.endpoint }}
+    IGNORE_UPLOAD_FAILURE: ${{ inputs.ignore_upload_failure }}
     GITHUB_TOKEN: ${{ inputs.github_token }}

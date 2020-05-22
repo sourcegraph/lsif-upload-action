@@ -15,9 +15,14 @@ if [ -z "$GITHUB_SHA" ]; then
     exit 1
 fi
 
+if [ -z "$IGNORE_UPLOAD_FAILURE" ]; then
+    IGNORE_UPLOAD_FAILIRE="false"
+fi
+
 env src lsif upload \
     "-file=${IN}" \
     "-repo=github.com/${GITHUB_REPOSITORY}" \
     "-commit=${GITHUB_SHA}" \
     "-root=${ROOT}" \
+    "-ignore-upload-failure=${IGNORE_UPLOAD_FAILURE}" \
     "-github-token=${GITHUB_TOKEN}"
