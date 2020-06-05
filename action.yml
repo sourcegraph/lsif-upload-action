@@ -18,6 +18,9 @@ inputs:
   github_token:
     description: Either 1. a GitHub access token with `repo` or `public_repo` scope, or 2. a GitHub installation access token (necessary when uploading to Sourcegraph.com, or any Sourcegraph instance with lsifEnforceAuth set to true).
     default: ''
+  ignore_upload_failure:
+    description: Whether the action should fail if uploading the lsif dump fails.
+    default: ''
 
 runs:
   using: docker
