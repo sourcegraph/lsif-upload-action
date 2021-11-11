@@ -16,7 +16,7 @@ if [ -z "$GITHUB_SHA" ]; then
 fi
 
 if [ -z "$IGNORE_UPLOAD_FAILURE" ]; then
-    IGNORE_UPLOAD_FAILIRE="false"
+    IGNORE_UPLOAD_FAILURE="false"
 fi
 
 env src lsif upload \
