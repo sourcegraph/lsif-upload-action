@@ -1,6 +1,6 @@
 FROM alpine:3.10
 
-ENV CLI_VERSION=3.12.0
+ENV CLI_VERSION=4.5.0
 ENV DOWNLOAD_URL="https://github.com/sourcegraph/src-cli/releases/download/${CLI_VERSION}/src_linux_amd64"
 
 RUN apk add --no-cache \
